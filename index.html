@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Financeiro - Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Meu Financeiro</h1>
+    <p>Organize sua vida pessoal e seu trabalho em um só lugar.</p>
+  </header>
+
+  <main class="container">
+    <section class="card controls">
+      <div class="tabs">
+        <button class="tab-btn active" data-scope="pessoal">Pessoal</button>
+        <button class="tab-btn" data-scope="trabalho">Trabalho</button>
+      </div>
+
+      <form id="entry-form" class="entry-form">
+        <h2>Nova movimentação</h2>
+        <label>
+          Descrição
+          <input required id="descricao" type="text" placeholder="Ex: Mercado" />
+        </label>
+
+        <label>
+          Valor (R$)
+          <input required id="valor" type="number" step="0.01" placeholder="0,00" />
+        </label>
+
+        <label>
+          Tipo
+          <select id="tipo">
+            <option value="receita">Receita</option>
+            <option value="despesa">Despesa</option>
+          </select>
+        </label>
+
+        <label>
+          Categoria
+          <select id="categoria">
+            <option>Moradia</option>
+            <option>Alimentação</option>
+            <option>Transporte</option>
+            <option>Lazer</option>
+            <option>Saúde</option>
+            <option>Educação</option>
+            <option>Negócios</option>
+            <option>Investimentos</option>
+            <option>Outros</option>
+          </select>
+        </label>
+
+        <button type="submit">Adicionar</button>
+      </form>
+    </section>
+
+    <section class="card summary">
+      <h2>Resumo</h2>
+      <div class="summary-grid">
+        <article>
+          <h3>Receitas</h3>
+          <p id="receitas">R$ 0,00</p>
+        </article>
+        <article>
+          <h3>Despesas</h3>
+          <p id="despesas">R$ 0,00</p>
+        </article>
+        <article>
+          <h3>Saldo</h3>
+          <p id="saldo">R$ 0,00</p>
+        </article>
+      </div>
+      <div class="meta-box">
+        <h3>Meta de economia mensal (20%)</h3>
+        <div class="progress-track">
+          <div id="progress" class="progress-fill"></div>
+        </div>
+        <p id="meta-text">Defina receitas para calcular a meta.</p>
+      </div>
+    </section>
+
+    <section class="card chart-card">
+      <h2>Despesas por categoria</h2>
+      <div id="categoria-chart" class="bars"></div>
+    </section>
+
+    <section class="card history">
+      <h2>Histórico</h2>
+      <ul id="historico" class="list"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
